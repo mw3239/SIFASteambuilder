@@ -1,11 +1,13 @@
 load_guests <- function() {
   db = dbConnect(SQLite(), dbname="C:/Users/Mike/Documents/R/SIFASteambuilder/SIFAS.sqlite")
+  db = dbConnect(SQLite(), dbname="SIFAS.sqlite")
   my_guests <<- dbGetQuery(db,'SELECT * FROM my_guests')
   dbDisconnect(db)
 }
 
 save_guests <- function() {
   db = dbConnect(SQLite(), dbname="C:/Users/Mike/Documents/R/SIFASteambuilder/SIFAS.sqlite")
+  db = dbConnect(SQLite(), dbname="SIFAS.sqlite")
   dbWriteTable(db,"my_guests",my_guests,overwrite=T)
   dbDisconnect(db)
 }

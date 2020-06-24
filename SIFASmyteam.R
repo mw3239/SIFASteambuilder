@@ -88,6 +88,7 @@ add.member <- function(card,strategy,pos,strat.order=0,save=F){
 
 load_team <- function() {
   db = dbConnect(SQLite(), dbname="C:/Users/Mike/Documents/R/SIFASteambuilder/SIFAS.sqlite")
+  db = dbConnect(SQLite(), dbname="SIFAS.sqlite")
   my_teams <<- dbGetQuery(db,'SELECT * FROM my_teams')
   accessories.on.team <<- dbGetQuery(db,'SELECT * FROM my_team_accessories') %>% unlist() %>% as.vector()
   calc_appeal <<- dbGetQuery(db,'SELECT * FROM my_team_calc_appeal')
@@ -104,6 +105,7 @@ load_team <- function() {
 
 save_team <- function() {
   db = dbConnect(SQLite(), dbname="C:/Users/Mike/Documents/R/SIFASteambuilder/SIFAS.sqlite")
+  db = dbConnect(SQLite(), dbname="SIFAS.sqlite")
   dbWriteTable(db,"my_team",my_team,overwrite=T)
   dbWriteTable(db,"my_team_accessories",as_tibble(accessories.on.team),overwrite=T)
   dbWriteTable(db,"my_team_calc_appeal",calc_appeal,overwrite=T)
@@ -926,6 +928,7 @@ init_team_guest <- function(){
 
 save.team.guest <- function(){
   db = dbConnect(SQLite(), dbname="C:/Users/Mike/Documents/R/SIFASteambuilder/SIFAS.sqlite")
+  db = dbConnect(SQLite(), dbname="SIFAS.sqlite")
   dbWriteTable(db,"my_team_guest",my_team_guest,overwrite=T)
   dbDisconnect(db)
 }

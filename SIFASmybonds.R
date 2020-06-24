@@ -150,3 +150,5 @@ update_bond('kanata',30)
 update_bond('setsuna',31)
 update_bond('emma',35)
 update_bond('rina',52)
+
+#
