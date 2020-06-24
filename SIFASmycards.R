@@ -1,6 +1,6 @@
 load_my_cards <- function() {
   
-  db = dbConnect(SQLite(), dbname="C:/Users/Mike/Documents/R/SIFASteambuilder/SIFAS.sqlite")
+  db = dbConnect(SQLite(), dbname="SIFAS.sqlite")
   my_cards <<- dbGetQuery(db,'SELECT * FROM my_cards')
   my_bonds <<- dbGetQuery(db,'SELECT * FROM my_bonds')
   bond <<- dbGetQuery(db,'SELECT * FROM bond')
@@ -10,7 +10,7 @@ load_my_cards <- function() {
 }
 
 save_cards <- function() {
-  db = dbConnect(SQLite(), dbname="C:/Users/Mike/Documents/R/SIFASteambuilder/SIFAS.sqlite")
+  db = dbConnect(SQLite(), dbname="SIFAS.sqlite")
   dbWriteTable(db,"my_cards",my_cards,overwrite=T)
   dbDisconnect(db)
 }
@@ -465,6 +465,10 @@ edit.inspi.skill <- function(card,slot,to.add=0) {
   save_cards()
 }
 
+add.card(1,5,2)
+add.card(2,5)
+add.card(3,4,329)
+add.card(4,0,5,5)
 add.card(5,5)
 add.card(6,5,335,195)
 add.card(7,3,331,135)
