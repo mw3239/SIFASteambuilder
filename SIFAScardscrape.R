@@ -1,6 +1,5 @@
 #The main method that builds the card database.
-#Set rescrape=T on first time running (when there's no existing card database) or when
-#new cards are added to the game.
+#Set rescrape=T when new cards are added.
 add.cards <- function(rescrape=F){
   if(rescrape==T || !exists('cards')){
     scrape.page()
@@ -84,9 +83,11 @@ init_cards <- function() {
   return(as.integer(counter))
 }
 
+#The commented out 'notarealtable`` is for testing purposes to make sure reconstructing from scratch still works.
 load_cards <- function(){
   db = dbConnect(SQLite(), dbname="SIFAS.sqlite")
   tryCatch({card_table <<- dbGetQuery(db,'SELECT * FROM cards')
+  #tryCatch({card_table <<- dbGetQuery(db,'SELECT * FROM notarealdbtable')
   return(nrow(card_table)+1)},
   error = function(e){return(1)})
   dbDisconnect(db)
@@ -233,6 +234,8 @@ get.uncap.data <- function(counter) {
       i <- i - 1
       
     },
+    #Imma be honest I have no idea why decrementing i in the error function doesn't work
+    #but putting the counter at the top of the function did the trick.
     error = function(e){i <- i-1})
   }
 }
@@ -263,15 +266,6 @@ get.card.name <- function(counter){
   }
   
   card_table$card.name[counter:length(cards)] <<- temp
-  
-  #There's a typo in this card's name on kach's site.
-  if(counter <= 240){
-    card_table$card.name[240] <<- "Warm Welcome☆China Maid Rin"
-  }
-  #This one too. Well, the K in Karin isn't capitalized, so can probably ignore this but whatever.
-  if(counter <= 246){
-    card_table$card.name[246] <<- "Marching Harmony Karin"
-  }
 }
 
 get.rarity <- function(counter) {
