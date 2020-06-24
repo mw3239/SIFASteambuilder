@@ -217,6 +217,3 @@ replace.plus <- function(){
   dbWriteTable(db,"inspi_skills",inspi.skills,overwrite=T)
   dbDisconnect(db)
 }
-
-replace.plus()
-
