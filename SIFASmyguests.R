@@ -301,27 +301,3 @@ edit_inspi_guest <- function(row.num,slot,to.add=0) {
   
   save_guests()
 }
-
-add_guests(36,5,5,328,319,0,"ふぃあ")
-add_guests(36,3,316,316,0,0,"KOHJU")
-add_guests(182,4,322,322,313,313,"ほのほの")
-add_guests(146,5,313,322,14,310,"ほのほの")
-add_guests(146,5,313,322,310,310,"toki")
-add_guests(146,5,322,316,319,328,"yoppe-DC2")
-add_guests(146,4,322,322,316,23,"もも")
-add_guests(146,4,322,23,319,319,"Yule")
-add_guests(146,5,322,310,319,17,"ふぃあ")
-add_guests(112,5,322,328,328,0,"なお")
-add_guests(112,5,322,328,319,0,"ケンタ")
-add_guests(112,5,328,328,328,0,"夢見草")
-add_guests(47,5,316,319,316,0,"丸条 玢奈")
-add_guests(72,2,322,322,0,0,"なびちゃ")
-add_guests(139,4,322,316,313,0,"yoppe-DC2")
-add_guests(152,5,328,319,319,0,"toki")
-add_guests(152,0,323,312,0,0,"忍")
-add_guests(181,2,319,319,319,0,"ｲﾇﾁｬﾝ")
-add_guests(181,1,322,322,322,0,"まるこめ")
-add_guests(181,1,316,328,328,0,"夢見草")
-add_guests(218,0,210,0,0,0,"ヤマヨシ",save=T)
-
-#What do I need to do to get this to work
