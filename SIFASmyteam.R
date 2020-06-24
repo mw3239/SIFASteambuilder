@@ -19,7 +19,6 @@ add.member <- function(card,strategy,pos,strat.order=0,save=F){
   
   check_valid_member(card,strategy,pos,strat.order)
   
-  
   card.row <- my_cards[which(my_cards$card.num==card),]
   
   my_team$card.num[pos] <<- card %>% as.integer()
@@ -1056,36 +1055,3 @@ guest.insp.apply <- function(){
     }
   }
 }
-
-
-#Active2
-add.member(226,"red",1,2)
-add.member(52,"red",2,1)
-add.member(146,"red",3,3)
-add.member(48,"green",4,1)
-add.member(109,"blue",5,2)
-add.member(75,"blue",6,3)
-add.member(12,"green",7,2)
-add.member(178,"green",8,3)
-add.member(4,"blue",9,1)
-team.add.accessory(1,1)
-team.add.accessory(2,2)
-team.add.accessory(7,3)
-team.add.accessory(4,4)
-team.add.accessory(8,7)
-team.add.accessory(13,8)
-team.add.accessory(30,5)
-team.add.accessory(3,6)
-team.add.accessory(11,9,T)
-
-View(my_team)
-View(my_guests)
-View(my_team_guest)
-
-sum(my_team$stam)
-swap.strategies(4,5)
-
-init_team_guest()
-add.team.guest(11)
-
-View(calc_appeal)
