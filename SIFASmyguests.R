@@ -324,3 +324,4 @@ add_guests(181,1,322,322,322,0,"まるこめ")
 add_guests(181,1,316,328,328,0,"夢見草")
 add_guests(218,0,210,0,0,0,"ヤマヨシ",save=T)
 
+#What do I need to do to get this to work
