@@ -1,4 +1,4 @@
-#Not updated for the 7 summer skills.
+#To do: Add 7 new skills that were added.
 
 db = dbConnect(SQLite(), "masterdata-jun.db")
 db1 = dbConnect(SQLite(),"SIFAS.sqlite")
@@ -74,7 +74,7 @@ dbGetQuery(db,"SELECT A.message AS 'name', B.message AS 'description'
   #Then the value. This can either be a percentage increase of flat boost.
   mutate(inspi.val = get.inspi.val(description)) %>%
   #Next the duration.
-  #Note that the 基本~Permanet check MUST be at the end of this sequence as some of the ones that fell into the notes and remainder
+  #Note that the 基本~Permanent check MUST be at the end of this sequence as some of the ones that fell into the notes and remainder
   #categories also contain that text.
   mutate(inspi.dur=case_when(str_detect(description,"ノーツ")~str_replace(str_extract(description,"[:digit:]+ノーツ"),"ノーツ"," notes"),
                              str_detect(description,"終了まで")~"Remainder",
