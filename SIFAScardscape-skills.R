@@ -229,15 +229,3 @@ invisible(map(c(db,db1),dbDisconnect))
 
 scrape_card_info(masterdata="masterdata-jun.db")
 scrape_card_actives(masterdata="masterdata-jun.db")
-
-
-
-
-test1 <- "基本アピールが2.6%増加\n基本テクニックが5.2%増加\n対象:同属性"
-
-test2 <- testdb$sl_1[1]
-
-
-str_detect(test2,"\\\n基本")
-
-
