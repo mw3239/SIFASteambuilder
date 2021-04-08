@@ -44,7 +44,7 @@ stat.tree[,] <- tree %>% mutate(uncap = case_when(card_rarity_type==10 & trainin
   summarize(stat=sum(value)) %>% #The sum of each stat obtained from each uncap level for each card.
   dcast(school_idol_no ~ training_content_type + uncap) %>% #Widen the df so that it matches the format of stat.components
   #rename_with(~ str_replace(.,"2_","stam")) %>% #Renaming is a waste if I'm just reassigning it to an already existing df
-  #rename_with(~ str_replace(.,"3_","appeal")) %>% #BUt I'm keeping it here in case I want to reuse this syntax later.
+  #rename_with(~ str_replace(.,"3_","appeal")) %>% #But I'm keeping it here in case I want to reuse this syntax later.
   #rename_with(~ str_replace(.,"4_","tech")) %>%
   select(1,8:13,2:7,14:19) #For some reason content_type 2 is stamina and 3 is appeal internally. Dunno why they're reversed. This fixes that.
 
