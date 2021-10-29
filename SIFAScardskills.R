@@ -141,6 +141,7 @@ live_get_effect <- function(message){
             str_detect(message, "アピールが([:digit:]|\\.)+%増加")~"Appeal Boost (percent)",
             str_detect(message, "0になる")~"Revive",
             str_detect(message, "解除")~"Cleanse",
+            str_detect(message, "クリティカル時のみ獲得ボルテージの上限")~"Critical Voltage Cap Increase",
             str_detect(message, "上限")~"Voltage Cap Increase",
             str_detect(message, "含まれるボルテージタイプの数×")~"Appeal Boost (vo count)",
             str_detect(message, "含まれるガードタイプの数×300スタミナを回復")~"Stamina Recovery (gd count)",
@@ -290,7 +291,10 @@ dbGetQuery(db, "WITH names AS(
               LEFT JOIN passive_skill AS p ON j.school_idol_no = p.school_idol_no
               ORDER BY j.school_idol_no") %>%
   # Did this here instead of in the query since the query looked ugly enough already.
-  mutate(card_name = str_replace_all(card_name, "&amp;", "&")) %>%
+  mutate(card_name = str_replace_all(card_name, "&amp;", "&"),
+         card_name = str_replace_all(card_name, "&quot;", '"'),
+         card_name_en = str_replace_all(card_name_en, "&amp;", "&"),
+         card_name_en = str_replace_all(card_name_en, "&quot;", '"')) %>%
   dbWriteTable(db1, "cards_basic_info", ., overwrite = T)
 
 # Active Skills
